@@ -15,7 +15,12 @@ export class BoardListComponent implements OnInit {
   boardResponse: BoardResponse;
 
   ngOnInit(): void {
-    this.boardService.getBoards()
+    this.boardService.getBoards('9', '0')
+      .subscribe((data: BoardResponse) => this.boardResponse = {...data});
+  }
+
+  getNewPage(page: string) {
+    this.boardService.getBoards('9', page)
       .subscribe((data: BoardResponse) => this.boardResponse = {...data});
   }
 }

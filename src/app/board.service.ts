@@ -11,10 +11,10 @@ export class BoardService {
 
   constructor(private http: HttpClient) { }
 
-  boardUrl = 'http://localhost:8080/boards?pageSize=9';
+  boardUrl = 'http://localhost:8080/boards';
 
-  getBoards(): Observable<BoardResponse> {
+  getBoards(pageSize: string, page: string): Observable<BoardResponse> {
     return this.http
-      .get<BoardResponse>(this.boardUrl);
+      .get<BoardResponse>(this.boardUrl, {params: {pageSize, page}});
   }
 }

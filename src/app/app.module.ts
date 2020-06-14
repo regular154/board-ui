@@ -7,6 +7,7 @@ import { BoardListComponent } from './board-list/board-list.component';
 import { BoardListItemComponent } from './board-list-item/board-list-item.component';
 import { HomeComponent } from './home/home.component';
 import { FilterItemComponent } from './filter-item/filter-item.component';
+import { PaginationComponent } from './board-list/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FilterItemComponent } from './filter-item/filter-item.component';
     BoardListComponent,
     BoardListItemComponent,
     HomeComponent,
-    FilterItemComponent
+    FilterItemComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

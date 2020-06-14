@@ -16,6 +16,12 @@
           <app-board-list-item [board]="board"></app-board-list-item>
         </div>
       </div>
+      <app-pagination
+        [page]="boardResponse.result.page"
+        [pages]="boardResponse.result.totalPages"
+        (requestedPage)="getNewPage($event)">
+      </app-pagination>
     </div>
+
   </div>
 </div>
