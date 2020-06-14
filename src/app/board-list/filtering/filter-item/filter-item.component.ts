@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Filter} from '../model-interfaces/filter';
-import {FilterValue} from '../model-objects/filter-value';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Filter} from '../../../model-interfaces/filter';
+import {FilterValue} from '../../../model-objects/filter-value';
 
 @Component({
   selector: 'app-filter-item',
@@ -10,6 +10,7 @@ import {FilterValue} from '../model-objects/filter-value';
 export class FilterItemComponent implements OnInit {
 
   @Input() filter: Filter;
+  @Output() requestedFilterValue = new EventEmitter<object>();
   filterValues: FilterValue[] = [];
 
   constructor() {
@@ -27,6 +28,10 @@ export class FilterItemComponent implements OnInit {
       item.count = values[prop];
       this.filterValues.push(item);
     }
+  }
+
+  getFilterValue(filterName: string, value: string) {
+    this.requestedFilterValue.emit({[filterName]: value});
   }
 
 }

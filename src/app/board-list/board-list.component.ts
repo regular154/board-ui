@@ -15,12 +15,17 @@ export class BoardListComponent implements OnInit {
   boardResponse: BoardResponse;
 
   ngOnInit(): void {
-    this.boardService.getBoards('9', '0')
+    this.boardService.getBoards()
       .subscribe((data: BoardResponse) => this.boardResponse = {...data});
   }
 
   getNewPage(page: string) {
-    this.boardService.getBoards('9', page)
+    this.boardService.getBoardsPage(page)
+      .subscribe((data: BoardResponse) => this.boardResponse = {...data});
+  }
+
+  getBoardsByFilters(filters: object) {
+    this.boardService.getBoardsByFilters(filters)
       .subscribe((data: BoardResponse) => this.boardResponse = {...data});
   }
 }

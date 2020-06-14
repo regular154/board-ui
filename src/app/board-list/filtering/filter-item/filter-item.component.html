@@ -1,0 +1,19 @@
+<div *ngIf="filter.selectedValue">{{filter.name}} = {{filter.selectedValue}}</div>
+<div *ngIf="!filter.selectedValue">
+  <p>
+    {{filter.name}}
+  <div *ngFor="let filterValue of filterValues" class="custom-control custom-radio">
+    <input
+      type="radio"
+      class="custom-control-input"
+      [attr.checked]="filter.selectedValue ? 'checked' : null"
+      id="{{filterValue.name}}"
+      (change)="getFilterValue(filter.name, filterValue.name)"
+      name="defaultExampleRadios">
+    <label
+      class="custom-control-label"
+      for="{{filterValue.name}}">
+      {{filterValue.name}}
+    </label>
+  </div>
+</div>
