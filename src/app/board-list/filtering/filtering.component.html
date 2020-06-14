@@ -1,0 +1,8 @@
+<h5 class="my-4">Filters</h5>
+
+<div *ngFor="let filter of filters">
+  <app-filter-item
+    *ngIf="filter" [filter]="filter"
+    (requestedFilterValue)="getFilters($event)">
+  </app-filter-item>
+</div>
