@@ -21,13 +21,12 @@ export class FilterItemComponent implements OnInit {
   }
 
   getFilterValues() {
-    const values = Object.keys(this.filter.values);
-    for (const prop of values) {
+    Object.keys(this.filter.values).forEach(key => {
       const item = new FilterValue();
-      item.name = prop;
-      item.count = values[prop];
+      item.name = key;
+      item.count = this.filter.values[key];
       this.filterValues.push(item);
-    }
+    });
   }
 
   getFilterValue(filterName: string, value: string) {

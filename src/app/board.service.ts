@@ -15,7 +15,7 @@ export class BoardService {
 
   defaultPageSize: string;
 
-  boardUrl = 'http://localhost:8080/boards';
+  boardUrl = 'http://localhost:8181/boards';
 
   getBoards(): Observable<BoardResponse> {
     return this.http
